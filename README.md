@@ -1,87 +1,90 @@
 <h1>Invoice Automation</h1>
 
 <h2>Description</h2>
-💼 Overview
 
-  - Developed a Python-based automation script to process invoice data from Excel files. The script filters out unpaid invoices, calculates the total amount due, and simulates uploading the results to a SharePoint document library by copying files to a designated folder. This project streamlines accounts payable management and simulates integration with SharePoint workflows.
+💼 **Overview**  
+- Designed and implemented a Python-based automation script to streamline invoice processing for accounts payable workflows.  
+- The script automatically filters unpaid invoices from Excel files, calculates the total amount due, and simulates a SharePoint upload by copying output reports to a designated folder.  
+- This project demonstrates practical automation of a routine financial task, providing clear value in terms of time savings and data consistency.
 
-🧰 Key Points
-  - Data Processing: Efficient filtering of unpaid invoices using pandas.
+🧰 **Key Points**  
+- **Data Processing**: Uses `pandas` to extract and filter unpaid invoices from structured Excel files.  
+- **Automation**: Replaces manual review with a script that processes and reports on invoice data.  
+- **Simulation**: Mimics SharePoint document management by copying reports into a designated folder.  
+- **Reporting**: Generates a concise summary of outstanding balances for financial insight.  
 
-  - Automation: Eliminates manual review by automatically generating a report of outstanding invoices.
+🚀 **Objectives**  
+- Automate the extraction, filtering, and reporting of unpaid invoices from Excel data.  
+- Simulate document upload to SharePoint to reflect enterprise file workflows.  
+- Demonstrate entry-level scripting skills applicable to finance and accounting operations.  
+- Lay the foundation for integration with real SharePoint APIs and dynamic reporting.
 
-  - Simulation: Mimics SharePoint upload by copying the filtered invoice report to a dedicated SharePoint folder.
+<h2>Project Walk-Through</h2>
 
-  - Reporting: Calculates and outputs the total outstanding balance for quick financial insight.
+**Step 1: Organize Folders for Automation**  
+Created the following folder structure to support modular and scalable development:
 
-🚀 Objectives
+- `Data/` for input invoice Excel files  
+- `Output/` to store filtered unpaid invoices reports  
+- `README.md` for project overview and usage instructions  
+- `Scripts/` to hold the Python automation script  
+- `SharePoint_Library/` to simulate SharePoint document storage
 
-  - Automate extraction and filtering of unpaid invoices from a master invoice Excel file.
-
-  - Generate clear, actionable reports to support accounts payable workflow.
-
-  - Demonstrate file system automation as a proxy for SharePoint document management.
-
-  - Build foundational skills in Python scripting for finance-related automation.
-
-<h2>Project Walk-Through:</h2>
-Step 1: Organize Folders for Automation
-
-Create the folder structure to organize the files.
-
+<br/>
 <img src="https://imgur.com/TdZsJfO.png" height="50%" width="50%" />
 
-Data/ for input invoice Excel files.
+---
 
-Output/ to store filtered unpaid invoice reports.
-
-README.md for project overview and usage instructions.
-
-Scripts/ to hold the Python automation script.
-
-SharePoint_Library/ to simulate SharePoint document storage.
-
-Step 2: Place Invoice Data File
-
-Add the Excel invoice records into the Data/ folder.
-
+**Step 2: Place Invoice Data File**  
+Added a sample Excel file containing invoice records to the `Data/` folder. This file includes columns such as `Invoice Number`, `Customer`, `Amount`, and `Status`.  
+<br/>
 <img src="https://imgur.com/qhHnMG3.png" height="80%" width="80%" />
 
-Step 3: Write the Python Script
-Create process_invoices.py inside Scripts/ folder with the following logic:
+---
 
-Load the invoice data with pandas.
+**Step 3: Write the Python Script**  
+Created `process_invoices.py` inside the `Scripts/` folder with the following logic:
 
-Print columns and preview rows to verify data.
+- Load invoice data with `pandas`  
+- Print columns and preview data to verify structure  
+- Filter out rows where `Status != "Paid"`  
+- Calculate the total unpaid balance  
+- Save results to `Output/unpaid_invoices.xlsx`  
+- Simulate SharePoint upload by copying to `SharePoint_Library/unpaid_invoices.xlsx`  
+- Display messages confirming each operation  
 
-Filter out invoices where Status is not “Paid.”
-
-Calculate the total amount due on unpaid invoices.
-
-Save filtered invoices to Output/unpaid_invoices.xlsx.
-
-Simulate SharePoint upload by copying this file to SharePoint_Library/unpaid_invoices.xlsx.
-
-Print confirmation messages at each stage.
-
+<br/>
 <img src="https://imgur.com/bMOLEls.png" height="80%" width="80%" />
 
-Step 4: Run the Script
-From the terminal, navigate to the Scripts/ directory and run:
+---
 
-(change to code format)python process_invoices.py
+**Step 4: Run the Script**  
+From the terminal, navigated to the `Scripts/` directory and ran the script using:
+`python process_invoices.py`
 
+<br/>
 <img src="https://imgur.com/y8sG49n.png" height="80%" width="80%" />
 
-Step 5: Review Output Files
-Open Output/unpaid_invoices.xlsx to verify that only unpaid invoices remain.
+---
 
-<img src="https://imgur.com/vLRWgTd.png" height="80%" width="80%" />
+**Step 5: Review Output Files**  
+Opened the generated `Output/unpaid_invoices.xlsx` file to confirm that it only includes invoices marked as unpaid. Since invoice #3 was identified as paid, it does it appear in this list.
+<br/>
+<img src="https://imgur.com/cBHyT45.png" height="80%" width="80%" />
 
-Step 6: Verify SharePoint Simulation
-Navigate to the SharePoint_Library/ folder and confirm that the unpaid invoices file is copied there. This simulates uploading to SharePoint.
+---
 
+**Step 6: Verify SharePoint Simulation**  
+Checked the `SharePoint_Library/` folder to verify that the report file was successfully copied, simulating a SharePoint upload.  
+<br/>
 <img src="https://imgur.com/Mm8wAd5.png" height="80%" width="80%" />
 
-Step 7: Summary & Next Steps
-This project automates a common accounts payable task, making invoice tracking faster and more reliable. As a next step, this could integrate actual SharePoint APIs for real upload capabilities, add email notifications for unpaid invoices, or extend filters for dynamic report generation.
+---
+
+**Step 7: Summary & Next Steps**  
+This project demonstrates how basic Python scripting can automate real-world accounting tasks. It streamlines invoice tracking, improves consistency, and lays the groundwork for integrating with actual SharePoint environments.  
+Next steps could include:
+
+- Using SharePoint APIs to perform actual uploads  
+- Adding automated email notifications for unpaid invoices  
+- Enhancing logic for aging reports or dynamic filters
